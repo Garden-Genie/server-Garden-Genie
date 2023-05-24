@@ -1,10 +1,10 @@
-package com.example.gardengenie.GardenGenie.controller;
+package com.example.gardengenie.controller;
 
 
-import com.example.gardengenie.GardenGenie.Plant;
-import com.example.gardengenie.GardenGenie.Story;
-import com.example.gardengenie.GardenGenie.StoryRepository;
-import com.example.gardengenie.GardenGenie.User;
+import com.example.gardengenie.domain.Plant;
+import com.example.gardengenie.domain.Story;
+import com.example.gardengenie.repository.StoryRepository;
+import com.example.gardengenie.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

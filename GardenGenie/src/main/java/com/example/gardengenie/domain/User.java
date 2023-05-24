@@ -1,4 +1,4 @@
-package com.example.gardengenie.GardenGenie;
+package com.example.gardengenie.domain;
 
 import lombok.Getter;
 import lombok.Setter;

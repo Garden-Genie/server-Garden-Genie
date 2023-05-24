@@ -1,7 +1,7 @@
-package com.example.gardengenie.GardenGenie.controller;
+package com.example.gardengenie.controller;
 
-import com.example.gardengenie.GardenGenie.User;
-import com.example.gardengenie.GardenGenie.UserRepository;
+import com.example.gardengenie.domain.User;
+import com.example.gardengenie.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

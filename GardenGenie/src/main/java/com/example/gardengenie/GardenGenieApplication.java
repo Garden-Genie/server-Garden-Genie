@@ -1,4 +1,4 @@
-package com.example.gardengenie.GardenGenie;
+package com.example.gardengenie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
