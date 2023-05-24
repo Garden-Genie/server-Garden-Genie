@@ -4,6 +4,11 @@ server:
     encoding:
       charset: UTF-8
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/GardenDB
+    username: root
+    password: 000930
   session:
     store-type: jdbc
   profiles:
