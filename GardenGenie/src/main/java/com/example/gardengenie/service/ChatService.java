@@ -40,9 +40,9 @@ public class ChatService {
         return responseEntity.getBody();
     }
 
-    public ChatGptResponseDto askQuestion(QuestionRequestDto requestDto) {
+    public ChatGptResponseDto askGPTQuestion(QuestionRequestDto requestDto) {
         // 반복되는 말을 질문 앞에 추가
-        String question = REPEATING_1TEXT + " <" + requestDto.getQuestion() + "> " + REPEATING_2TEXT;
+        String question = NAME_1TEXT + " <" + requestDto.getQuestion() + "> " + NAME_2TEXT;
 
         // 질문 로깅
         logger.log(Level.INFO, "====Question: {0}", question);
@@ -56,11 +56,48 @@ public class ChatService {
                                 ChatGptConfig.MAX_TOKEN,
                                 ChatGptConfig.TEMPERATURE,
                                 ChatGptConfig.TOP_P
-//                                ChatGptConfig.MODEL,
-//                                requestDto.getQuestion(),
-//                                ChatGptConfig.MAX_TOKEN,
-//                                ChatGptConfig.TEMPERATURE,
-//                                ChatGptConfig.TOP_P
+                        )
+                )
+        );
+    }
+
+    public ChatGptResponseDto askQuestion(QuestionRequestDto requestDto) {
+        // 반복되는 말을 질문 앞에 추가
+        String question = NAME_1TEXT + " <" + requestDto.getQuestion() + "> " + NAME_2TEXT;
+
+        // 질문 로깅
+        logger.log(Level.INFO, "====Question: {0}", question);
+
+
+        return this.getResponse(
+                this.buildHttpEntity(
+                        new ChatGptRequestDto(
+                                ChatGptConfig.MODEL,
+                                requestDto.getQuestion(),
+                                ChatGptConfig.MAX_TOKEN,
+                                ChatGptConfig.TEMPERATURE,
+                                ChatGptConfig.TOP_P
+                        )
+                )
+        );
+    }
+
+    public ChatGptResponseDto askPoem(QuestionRequestDto requestDto) {
+        // 반복되는 말을 질문 앞에 추가
+        String question = POEM_1TEXT + " <" + requestDto.getQuestion() + "> " + POEM_2TEXT;
+
+        // 질문 로깅
+        logger.log(Level.INFO, "====Question: {0}", question);
+
+
+        return this.getResponse(
+                this.buildHttpEntity(
+                        new ChatGptRequestDto(
+                                ChatGptConfig.MODEL,
+                                requestDto.getQuestion(),
+                                ChatGptConfig.MAX_TOKEN,
+                                ChatGptConfig.TEMPERATURE,
+                                ChatGptConfig.TOP_P
                         )
                 )
         );
