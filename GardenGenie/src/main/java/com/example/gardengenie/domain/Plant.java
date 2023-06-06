@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -30,6 +31,9 @@ public class Plant {
     @OneToOne(mappedBy = "plant")
     private Story story;
 
+    @Column(nullable = false)
+    private LocalDateTime created_at; // createdAt 필드 추가
+
     public Plant(){
     }
 
@@ -38,6 +42,6 @@ public class Plant {
         this.user = user;
         this.plt_img = plt_img;
         this.plt_name = plt_name;
-
+        this.created_at = LocalDateTime.now(); // 생성 시간을 현재 시간으로 설정
     }
 }
