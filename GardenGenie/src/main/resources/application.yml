@@ -8,10 +8,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/GardenDB
     username: root
-    password: 921204
+
+    password: //
+
   session:
     store-type: jdbc
   profiles:
+    include: API-KEY
     active: real
   jpa:
     database: mysql
@@ -27,4 +30,4 @@ logging:
     org.springframework.web : DEBUG
 jwt:
   secret:
-    key: C*F-JaNdRgUkXp2s5v8y/B?D(G+KbPe%
+    key: 
