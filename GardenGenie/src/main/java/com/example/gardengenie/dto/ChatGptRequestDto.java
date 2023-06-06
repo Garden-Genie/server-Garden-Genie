@@ -5,28 +5,32 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
-public class ChatGptRequestDto implements Serializable {
-
+@AllArgsConstructor
+public class ChatGptRequestDto {
     private String model;
-    private String prompt;
+    private List<Message> messages;
     @JsonProperty("max_tokens")
     private Integer maxTokens;
-    private Double temperature;
-    @JsonProperty("top_p")
-    private Double topP;
 
-    @Builder
-    public ChatGptRequestDto(String model, String prompt,
-                             Integer maxTokens, Double temperature,
-                             Double topP) {
-        this.model = model;
-        this.prompt = prompt;
-        this.maxTokens = maxTokens;
-        this.temperature = temperature;
-        this.topP = topP;
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class Message {
+        private String role;
+        private String content;
+
+        @Builder
+        public Message(String role, String content) {
+            this.role = role;
+            this.content = content;
+        }
     }
 }
