@@ -1,35 +1,49 @@
 package com.example.gardengenie.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import net.bytebuddy.matcher.FilterableList;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder @AllArgsConstructor @NoArgsConstructor
 @Table(name = "User")
 public class User {
+
     @Id
-    @Column(length = 20, nullable = false)
-    private String user_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_num", nullable = false)
+    private Long userNum;
 
-    @Column(length = 20, nullable = false)
-    private String user_name;
+    @Column(name = "user_id", length = 20, nullable = false)
+    private String userId;
 
-    @Column(length = 20, nullable = false)
+    @Column(name = "user_name", length = 20, nullable = false)
+    private String userName;
+
+    @Column(nullable = false)
     private String user_pwd;
 
     @Column(length = 50, nullable = false, unique = true)
     private String user_email;
 
-    public User(){
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Authority> roles = new ArrayList<>();
+
+    public void setRoles(List<Authority> role){
+        this.roles = role;
+        role.forEach(o -> o.setUser(this));
     }
 
     public User(String user_name, String user_id, String user_email, String user_pwd){
         this.user_email = user_email;
-        this.user_id = user_id;
-        this.user_name = user_name;
+        this.userId = user_id;
+        this.userName = user_name;
         this.user_pwd = user_pwd;
     }
 }
