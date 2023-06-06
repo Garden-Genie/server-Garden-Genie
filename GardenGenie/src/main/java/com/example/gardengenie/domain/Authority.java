@@ -13,7 +13,7 @@ public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    private Long user_num;
+    private Long user_id;
 
     private String user_name;
 
