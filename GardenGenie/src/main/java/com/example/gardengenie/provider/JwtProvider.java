@@ -1,6 +1,7 @@
-package com.example.gardengenie;
+package com.example.gardengenie.provider;
 
 import com.example.gardengenie.domain.Authority;
+import com.example.gardengenie.service.JpaUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

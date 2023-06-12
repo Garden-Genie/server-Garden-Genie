@@ -1,8 +1,8 @@
 package com.example.gardengenie.controller;
 
-import com.example.gardengenie.SignRequest;
-import com.example.gardengenie.SignResponse;
-import com.example.gardengenie.SignService;
+import com.example.gardengenie.model.SignRequest;
+import com.example.gardengenie.model.SignResponse;
+import com.example.gardengenie.service.SignService;
 import com.example.gardengenie.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

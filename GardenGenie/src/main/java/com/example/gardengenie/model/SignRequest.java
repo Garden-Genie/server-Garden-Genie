@@ -1,4 +1,4 @@
-package com.example.gardengenie;
+package com.example.gardengenie.model;
 
 import lombok.Getter;
 import lombok.Setter;

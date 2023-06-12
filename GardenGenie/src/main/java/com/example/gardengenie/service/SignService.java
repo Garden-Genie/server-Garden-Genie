@@ -1,16 +1,17 @@
-package com.example.gardengenie;
+package com.example.gardengenie.service;
 
+import com.example.gardengenie.provider.JwtProvider;
+import com.example.gardengenie.model.SignRequest;
+import com.example.gardengenie.model.SignResponse;
 import com.example.gardengenie.domain.Authority;
 import com.example.gardengenie.domain.User;
 import com.example.gardengenie.repository.LoginRepository;
 import com.example.gardengenie.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.logging.Logger;

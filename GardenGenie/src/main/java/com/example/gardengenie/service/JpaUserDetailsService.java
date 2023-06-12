@@ -1,4 +1,4 @@
-package com.example.gardengenie;
+package com.example.gardengenie.service;
 
 import com.example.gardengenie.domain.CustomUserDetails;
 import com.example.gardengenie.domain.User;
