@@ -16,10 +16,10 @@ public class PlantController {
     }
 
     //Post로 plant 추가
-    @PostMapping
-    public Plant put(@RequestParam int plt_id, @RequestParam User user_id, @RequestParam String plt_name, @RequestParam byte[] plt_img){
-        return plantRep.save(new Plant(plt_id, user_id, plt_name, plt_img));
-    }
+//    @PostMapping
+//    public Plant put(@RequestParam int plt_id, @RequestParam int user_num, @RequestParam String plt_name, @RequestParam String plt_img){
+//        return plantRep.save(new Plant(plt_id, user_num, plt_name, plt_img));
+//    }
 
     //테이블 리스트 가져오기
     @GetMapping
