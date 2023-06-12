@@ -22,14 +22,15 @@ public class Plant {
     private String plt_name;
 
     @Column(nullable = false, name = "plt_img")
-    private byte[] plt_img;
+    private String plt_img;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    @JoinColumn(name = "user_num", referencedColumnName = "user_num", nullable = false)
     private User user;
 
-    @OneToOne(mappedBy = "plant")
-    private Story story;
+    // Story 기능 미구현 : Story table 이용 X
+//    @OneToOne(mappedBy = "plant")
+//    private Story story;
 
     @Column(nullable = false)
     private LocalDateTime created_at; // createdAt 필드 추가
@@ -37,7 +38,7 @@ public class Plant {
     public Plant(){
     }
 
-    public Plant(int plt_id, User user, String plt_name, byte[] plt_img){
+    public Plant(int plt_id, User user, String plt_name, String plt_img){
         this.plt_id = plt_id;
         this.user = user;
         this.plt_img = plt_img;
