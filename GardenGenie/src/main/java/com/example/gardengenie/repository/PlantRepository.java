@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PlantRepository extends JpaRepository<Plant, Long> {
-    @Query(value = "SELECT p.plt_name FROM Plant p ORDER BY p.created_at DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT p.plt_name FROM plant p ORDER BY p.created_at DESC LIMIT 1", nativeQuery = true)
     String findMostRecentPltName();
 
 //    String findPlantNameByPltName(String pltName);
