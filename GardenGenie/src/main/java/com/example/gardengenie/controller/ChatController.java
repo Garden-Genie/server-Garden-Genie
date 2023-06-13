@@ -46,7 +46,7 @@ public class ChatController {
         }
 
         QuestionRequestDto requestDto = new QuestionRequestDto();
-        requestDto.setBody("식물 <" + pltName + ">에 대해서 3줄 이내로 설명해줘." + "이때 식물 이름은 한국말로 말해줘.");
+        requestDto.setBody("식물 <" + pltName + ">에 대해서 2줄 반 이내로 설명해줘." + "이때 식물 이름은 한국말로 말해줘.");
 
         // 로그 출력
         System.out.println("=============Request Body: " + requestDto.getBody());
@@ -118,7 +118,7 @@ public class ChatController {
         }
 
         QuestionRequestDto requestDto = new QuestionRequestDto();
-        requestDto.setBody("식물 <" + pltName + ">과 관련된 시를 창작해줘.");
+        requestDto.setBody("식물 <" + pltName + ">과 관련된 시를 짧게 창작해줘.");
 
         // 로그 출력
         System.out.println("=============Request Body: " + requestDto.getBody());
@@ -147,7 +147,7 @@ public class ChatController {
 
         QuestionRequestDto requestDto = new QuestionRequestDto();
         requestDto.setBody("Your answer form should start with this: '몇가지 조언을 드리겠습니다.'"+
-                "식물 <" + pltName + ">를 키울 때 주의 할 점이나 조언을 3줄 이내로 해줘."+
+                "식물 <" + pltName + ">를 키울 때 주의 할 점이나 조언을 2줄 반 이내로 해줘."+
                 "번호 없이 구어체로 말해줘."+ "이때 식물 이름은 한국말로 말해줘.");
 
         // 로그 출력
