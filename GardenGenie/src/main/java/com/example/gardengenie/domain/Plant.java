@@ -25,7 +25,7 @@ public class Plant {
     private String plt_img;
 
     @ManyToOne
-    @JoinColumn(name = "user_num", referencedColumnName = "user_num", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
     // Story 기능 미구현 : Story table 이용 X
