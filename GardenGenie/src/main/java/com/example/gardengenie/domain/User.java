@@ -4,6 +4,7 @@ import lombok.*;
 import net.bytebuddy.matcher.FilterableList;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @Builder @AllArgsConstructor @NoArgsConstructor
-@Table(name = "User")
-public class User {
+@Table(name = "user")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

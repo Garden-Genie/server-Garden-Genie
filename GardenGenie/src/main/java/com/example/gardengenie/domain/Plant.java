@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "Plant")
-public class Plant {
+@Table(name = "plant")
+public class Plant implements Serializable {
 
     @Id
     @GeneratedValue
