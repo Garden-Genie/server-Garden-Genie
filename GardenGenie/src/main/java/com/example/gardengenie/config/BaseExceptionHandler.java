@@ -14,23 +14,50 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.example.gardengenie.config.BaseResponseStatus.VALIDATION_ERROR;
-import static com.example.gardengenie.config.BaseResponseStatus.VALIDATION_TYPE_ERROR;
+import static com.example.gardengenie.config.BaseResponseStatus.*;
 
 
 @RestController
 @ControllerAdvice
 //extends ResponseEntityExceptionHandler
 public class BaseExceptionHandler {
+    // pltName이 "No object detected"인 경우에 대한 예외 처리 코드
     @ExceptionHandler(BaseException.class)
-    public final ResponseEntity<Object> handleBaseExceptions(BaseException exception){
-        ExceptionResponse exceptionResponse = new ExceptionResponse().builder()
-                .isSuccess(exception.getStatus().isSuccess())
-                .code(exception.getStatus().getCode())
-                .message(exception.getStatus().getMessage())
-                .build();
-        return new ResponseEntity(exceptionResponse, exception.getHttpStatus());
+    public final ResponseEntity<Object> handleBaseExceptions(BaseException exception) {
+        if (NO_OBJECT_DETECTES_ERROR.equals(exception.getStatus())) {
+            ExceptionResponse exceptionResponse = new ExceptionResponse().builder()
+                    .isSuccess(exception.getStatus().isSuccess())
+                    .code(exception.getStatus().getCode())
+                    .message(NO_OBJECT_DETECTES_ERROR.getMessage())
+                    .build();
+            return new ResponseEntity<>(exceptionResponse, exception.getHttpStatus());
+        } else if (PRINCIPAL_TYPE_ERROR.equals(exception.getStatus())) {
+            ExceptionResponse exceptionResponse = new ExceptionResponse().builder()
+                    .isSuccess(exception.getStatus().isSuccess())
+                    .code(exception.getStatus().getCode())
+                    .message(PRINCIPAL_TYPE_ERROR.getMessage())
+                    .build();
+            return new ResponseEntity<>(exceptionResponse, exception.getHttpStatus());
+        } else {
+            ExceptionResponse exceptionResponse = new ExceptionResponse().builder()
+                    .isSuccess(exception.getStatus().isSuccess())
+                    .code(exception.getStatus().getCode())
+                    .message(exception.getStatus().getMessage())
+                    .build();
+            return new ResponseEntity<>(exceptionResponse, exception.getHttpStatus());
+        }
     }
+
+
+//    @ExceptionHandler(BaseException.class)
+//    public final ResponseEntity<Object> handleBaseExceptions(BaseException exception){
+//        ExceptionResponse exceptionResponse = new ExceptionResponse().builder()
+//                .isSuccess(exception.getStatus().isSuccess())
+//                .code(exception.getStatus().getCode())
+//                .message(exception.getStatus().getMessage())
+//                .build();
+//        return new ResponseEntity(exceptionResponse, exception.getHttpStatus());
+//    }
 
     // 유효한 값이 아닐 때 예외 처리
     @ExceptionHandler(MethodArgumentNotValidException.class)

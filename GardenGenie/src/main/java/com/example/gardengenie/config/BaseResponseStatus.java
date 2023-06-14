@@ -41,8 +41,13 @@ public enum BaseResponseStatus {
      * 5000: Server 오류
      */
     SERVER_ERROR(false, 5000, "서버 연결에 실패하였습니다."),
+    
+    PRINCIPAL_TYPE_ERROR(false, 5001, "Principal 값의 타입이 유효하지 않습니다."),
 
-    ;
+    /**
+     * 6000: houseplants AI 관련 오류
+     */
+    NO_OBJECT_DETECTES_ERROR(false, 6000, "식물 인식에 실패했습니다.");
 
     private final boolean isSuccess;
     private final int code;
