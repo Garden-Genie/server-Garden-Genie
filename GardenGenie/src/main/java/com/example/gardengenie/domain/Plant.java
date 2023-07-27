@@ -29,9 +29,9 @@ public class Plant implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
-    // Story 기능 미구현 : Story table 이용 X
-//    @OneToOne(mappedBy = "plant")
-//    private Story story;
+    // Story 기능
+    @OneToOne(mappedBy = "plant")
+    private Story story;
 
     @Column(nullable = false)
     private LocalDateTime created_at; // createdAt 필드 추가
