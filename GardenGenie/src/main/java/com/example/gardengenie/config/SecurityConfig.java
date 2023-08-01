@@ -63,6 +63,9 @@ public class SecurityConfig {
                 .authorizeRequests()
                 // 회원가입과 로그인은 모두 승인
                 .antMatchers("/register", "/login").permitAll()
+                //// ---------- 테스트용 plant와 story 권환 열기
+                .antMatchers("/plant", "/story").permitAll()
+                .antMatchers("/Plant", "/Story").permitAll()
                 // /chat-gpt/** 은 모두 승인
                 .antMatchers("/chat-gpt/**").permitAll()
                 // /admin으로 시작하는 요청은 ADMIN 권한이 있는 유저에게만 허용
