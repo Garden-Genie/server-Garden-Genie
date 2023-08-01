@@ -41,6 +41,11 @@ public class User implements Serializable {
         role.forEach(o -> o.setUser(this));
     }
 
+    public User(String user_id) {
+        this.userId = user_id;
+    }
+
+
     public User(String user_name, String user_id, String user_email, String user_pwd){
         this.user_email = user_email;
         this.userId = user_id;
