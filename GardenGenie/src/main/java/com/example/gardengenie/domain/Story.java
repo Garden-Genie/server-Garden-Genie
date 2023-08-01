@@ -34,9 +34,9 @@ public class Story {
     @Column(length = 30, nullable = true, name = "story_condition")
     private String story_condition;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+//    private User user;
 
     @OneToOne
     @JoinColumn(name = "plt_id", referencedColumnName = "plt_id", nullable = false)
@@ -45,10 +45,10 @@ public class Story {
     public Story() {
     }
 
-    public Story(int storyId, User user, Plant plant, String pltName, LocalDateTime storyDate, String storyExplain, String storyMusic, String storyPoem, String storyCondition) {
+    public Story(int storyId, Plant plant, String pltName, LocalDateTime storyDate, String storyExplain, String storyMusic, String storyPoem, String storyCondition) {
         this.story_id = storyId;
-        this.user = user;
-//        this.plant = plant;
+//        this.user = user;
+        this.plant = plant;
         this.story_date = storyDate;
         this.story_explain = storyExplain;
         this.story_music = storyMusic;
