@@ -39,8 +39,8 @@ public class Plant implements Serializable {
     public Plant(){
     }
 
-    public Plant(int plt_id, User user, String plt_name, String plt_img){
-        this.plt_id = plt_id;
+    public Plant(User user, String plt_name, String plt_img){
+//        this.plt_id = plt_id;
         this.user = user;
         this.plt_img = plt_img;
         this.plt_name = plt_name;
