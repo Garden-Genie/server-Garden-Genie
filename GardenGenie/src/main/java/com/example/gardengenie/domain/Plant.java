@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Plant implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "plt_id")
     private int plt_id;
 
